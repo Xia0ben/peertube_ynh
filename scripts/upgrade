@@ -241,8 +241,8 @@ chown $app:$app "$final_path/.yarnrc.yml"
 
 pushd "$final_path"
 	ynh_use_nodejs
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH HOME="$final_path" yarn install --production --pure-lockfile
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH HOME="$final_path" yarn cache clean
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH HOME="$final_path" yarn install --production --pure-lockfile --use-yarnrc="$final_path/.yarnrc.yml"
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH HOME="$final_path" yarn cache clean --use-yarnrc="$final_path/.yarnrc.yml"
 popd
 
 #=================================================
